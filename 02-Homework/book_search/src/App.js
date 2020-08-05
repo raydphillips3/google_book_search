@@ -1,6 +1,4 @@
-import logo from './logo.svg';
-import React, { Component } from "react";
-
+import React from "react";
 import './App.css';
 
 import {
@@ -12,32 +10,22 @@ import {
 } from "react-router-dom";
 
 // Pages
-
-
-
-
-
-
+import SearchPage from "./pages/index";
+import SavePage from "./pages/Save";
+import NotFound from "./pages/404";
 
 function App() {
+  // render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path="/" component={SearchPage} />
+        <Route exact path="/save" component={SavePage} />
+        <Route exact path="/404" component={NotFound} />
+        <Redirect to="/404" />
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;

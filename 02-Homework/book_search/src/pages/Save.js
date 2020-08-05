@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom";
 import '../index.css';
 import { List, ListItem } from "../components/list";
@@ -9,16 +9,29 @@ function SavePage() {
 
   const [book, setBook] = useState("");
   
-  function handleSubmitSave(event) {
-    event.preventDefault();
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book +
-      "&key=AIzaSyC1N08CB95xJ2toeMLKdVtggRC4Hz4g9as&maxResults=10")
-      .then(data => {
-        console.log(data.data.items[2].volumeInfo.infoLink);
-        setResult(data.data.items)
-      })
-  }
+  useEffect(() => {
+    deleteBook();
+  }, []);
 
+  // Deletes a book form the database and the form
+function deleteBook(id) {
+  API.deleteBook(id)
+    .then(res => loadBooks())
+    .catch(err => console.log(err));
+};
+
+useEffect(() => {
+  loadBooks();
+}, []);
+
+function loadBooks() {
+  // Get saved books from the database
+  API.getBooks()
+    .then(res =>
+      setBook(res.data)
+    )
+    .catch(err => console.log(err));
+};
   
 
   return (

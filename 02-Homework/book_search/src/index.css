@@ -17,3 +17,16 @@ code {
   border: 5px solid black;
   padding: 10px;
 }
+
+nav {
+  border: 5px solid black;
+}
+
+form {
+  border: 5px solid black;
+  border-top: 0px;
+  padding: 40px;
+  padding-bottom: 60px;
+  
+}
+

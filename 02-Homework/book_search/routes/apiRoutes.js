@@ -6,7 +6,7 @@ const db = require("../models");
 router.use("/api", apiRoutes);
 
 
-router.post("/api/book", (req, res) => {
+router.post("/book", (req, res) => {
   db.Book.findOne(req.body).then((book) => {
       req.login(user, function (err) {
           if (err) { return console.log(err); }

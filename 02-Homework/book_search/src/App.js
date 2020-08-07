@@ -14,7 +14,7 @@ import SearchPage from "./pages/index";
 import SavePage from "./pages/Save";
 import NotFound from "./pages/404";
 
-function App() {
+const App = () => {
   // render() {
   return (
     <Router>

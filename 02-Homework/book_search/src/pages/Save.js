@@ -35,34 +35,34 @@ function loadBooks() {
   
 
   return (
-    <div class="container">
-      <nav class="nav">
+    <div className="container">
+      <nav className="nav">
         <h3>Google Book Search</h3>
-        <a class="nav-link" href="/">Search</a>
-        <a class="nav-link" href="/save">Save</a>
+        <a className="nav-link" href="/">Search</a>
+        <a className="nav-link" href="/save">Save</a>
       </nav>
       
-      <div class="row" id="bookRes">
+      <div className="row" id="bookRes">
         {book.length ? (
           <List>
             {result.map(book => (
               <ListItem>
-                <div class="row">
-                  <div class="col-3">
+                <div className="row">
+                  <div className="col-3">
                     <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
                   </div>
-                  <div class="col-6">
+                  <div className="col-6">
                     {book.volumeInfo.title} by {book.volumeInfo.authors}
                     <p>Synopsis: <br />
                     {book.volumeInfo.description}
                     </p>
                   </div>
-                  <div class="col-3">
+                  <div className="col-3">
                     <a href={book.volumeInfo.infoLink} target="_blank">
-                      <button type="button" class="btn btn-secondary">View</button>
+                      <button type="button" className="btn btn-secondary">View</button>
                     </a>
                     <a href="/save">
-                      <button type="button" class="btn btn-success">Save</button>
+                      <button type="button" className="btn btn-success">Save</button>
                     </a>
                   </div>
                 </div>

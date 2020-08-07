@@ -10,7 +10,7 @@ import { List, ListItem } from "./components/list";
 
 
 
-function Search() {
+const Search = (props) => {
 
   const [book, setBook] = useState("");
   const [result, setResult] = useState([]);
@@ -59,46 +59,46 @@ function handleSubmit(event) {
 }
 
 return (
-  <div class="container">
-    <nav class="nav">
+  <div className="container">
+    <nav className="nav">
       <h3>Google Book Search</h3>
-      <a class="nav-link" href="/">Search</a>
-      <a class="nav-link" href="/save">Save</a>
+      <a className="nav-link" href="/">Search</a>
+      <a className="nav-link" href="/save">Save</a>
     </nav>
     <form onClick={handleSubmit}>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
+      <div className="input-group mb-3">
+        <div className="input-group-prepend">
         </div>
         <input type="text" onChange={handleChange}
-          class="form-control"
+          className="form-control"
           placeholder="Seach Books" />
       </div>
-      <div class="float-right">
+      <div className="float-right">
         <buttom type="submit" id="searchBtn" className="btn btn-dark">Search</buttom>
       </div>
     </form>
-    <div class="row" id="bookRes">
+    <div className="row" id="bookRes">
       <h3>Results</h3>
       <List>
         {result.map(book => (
           <ListItem>
-            <div class="row" id="bookRes">
-              <div class="col-3">
+            <div className="row" id="bookRes">
+              <div className="col-3">
                 <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
               </div>
-              <div class="col-6">
+              <div className="col-6">
                 <b>{book.volumeInfo.title}</b> by <i>{book.volumeInfo.authors}</i>
                 <p>Synopsis: <br />
                   {book.volumeInfo.description}
                 </p>
               </div>
-              <div class="col-3">
+              <div className="col-3">
                 <a href={book.volumeInfo.infoLink} target="_blank">
-                  <button type="button" class="btn btn-info">View</button>
+                  <button type="button" className="btn btn-info">View</button>
                 </a>
                 <a><button type="button" 
                 id="saveBtn" onClick={saveBooks}
-                class="btn btn-success" >Save</button></a>
+                className="btn btn-success" >Save</button></a>
               </div>
             </div>
           </ListItem>
